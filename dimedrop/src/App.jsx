@@ -15,9 +15,10 @@ import styled, { keyframes } from 'styled-components';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const Container = styled.div`
-  margin: 0 auto;
-  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  font-family: 'Press Start 2P', cursive;
   color: #ecf0f1;
   image-rendering: pixelated;
 `;
@@ -25,7 +26,6 @@ const Container = styled.div`
 const Nav = styled.nav`
   background: #34495e;
   padding: 15px;
-  margin-bottom: 30px;
   border-bottom: 4px solid #ecf0f1;
   display: flex;
   justify-content: space-between;
@@ -65,19 +65,6 @@ const pixelate = keyframes`
   100% { transform: translateY(0); }
 `;
 
-const AnimatedPixel = styled.div`
-  animation: ${pixelate} 1s infinite;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 2rem;
-  color:rgb(255, 153, 0);
-  height: 10vh;
-  align-items: center;
-
-  display: flex;
-  justify-content: center;  /* horizontal centering */
-  align-items: center;      /* vertical centering */
-`;
-
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -102,9 +89,6 @@ function App() {
 
   return (
     <div className="App">
-        <AnimatedPixel>
-            <h1 className="Title">Welcome to DimeDrop</h1>
-        </AnimatedPixel>
         <Router>
             <Container>
                 <Nav>
