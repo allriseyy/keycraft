@@ -11,7 +11,8 @@ import SwiftUI
 struct keycraftApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            WarCardGameView()
         }
     }
 }
