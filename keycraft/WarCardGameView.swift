@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct WarCardGameView: View {
+    @State var playerCard = "back"
+    @State var cpuCard = "back"
+
+    @State var playerScore = 0
+    @State var cpuScore = 0
+
     var body: some View {
         
         ZStack {
@@ -22,13 +28,17 @@ struct WarCardGameView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Image("card2")
+                    Image(playerCard)
                     Spacer()
-                    Image("card3")
+                    Image(cpuCard)
                     Spacer()
                 }
                 Spacer()
-                Image("button")
+                Button {
+                    deal()
+                } label: {
+                    Image("button")
+                }
                 Spacer()
                 HStack {
                     Spacer()
@@ -36,8 +46,7 @@ struct WarCardGameView: View {
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                            
-                        Text("0")
+                        Text(String(playerScore))
                             .font(.largeTitle)
                             
                     }
@@ -46,7 +55,7 @@ struct WarCardGameView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 10.0)
-                        Text("0")
+                        Text(String(cpuScore))
                             .font(.largeTitle)
                     }
                     Spacer()
@@ -57,6 +66,13 @@ struct WarCardGameView: View {
             }
         }
         
+    }
+    
+    func deal() {
+        playerScore = Int.random(in: 2...14)
+        playerCard = "card" + String(playerScore)
+        cpuScore = Int.random(in: 2...14)
+        cpuCard = "card" + String(cpuScore)
     }
 }
 
