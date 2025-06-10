@@ -37,6 +37,10 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
+                WarCardGameView()
+                    .tabItem {
+                        Label("Game", systemImage: "gamecontroller.fill")
+                    }
             }
             .environmentObject(notesVM)
         }
