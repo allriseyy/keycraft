@@ -41,6 +41,10 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Game", systemImage: "gamecontroller.fill")
                     }
+                ContentView()
+                    .tabItem {
+                        Label("Dummy", systemImage: "bolt.fill")
+                    }
             }
             .environmentObject(notesVM)
         }
