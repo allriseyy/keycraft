@@ -9,29 +9,25 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var notesVM: NotesViewModel
-    @State private var showingAddNote = false
 
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("Welcome to QuickNotes!")
+                Text("Welcome to KeyCraft!")
                     .font(.title)
+                
+                Text("Level up your productivity with KeyCraft, the fun and interactive way to master MacOS/Windows keyboard shortcuts. Whether you're a total newbie or a seasoned multitasker, this app turns learning into a game.")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 25.0)
+                    .padding(.top, 10.0)
                 Spacer()
-            }
-            .navigationBarTitle("Home", displayMode: .inline)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    showingAddNote = true
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                }
-            )
-            .sheet(isPresented: $showingAddNote) {
-                AddNoteView()
-                    .environmentObject(notesVM)
             }
         }
     }
+}
+
+#Preview {
+    HomeView()
 }
