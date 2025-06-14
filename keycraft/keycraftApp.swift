@@ -22,6 +22,8 @@ import SwiftUI
 @main
 struct keycraftApp: App {
     @StateObject var notesVM = NotesViewModel()
+    @StateObject var blitzVM = GameViewModel()
+    @State private var selectedTab: Tab = .home
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -33,10 +35,11 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Learn", systemImage: "note.text")
                     }
-                ContentView()
+                BlitzStartView()
                     .tabItem {
                         Label("Blitz", systemImage: "bolt.fill")
                     }
+                    .environmentObject(blitzVM)
                 WarCardGameView()
                     .tabItem {
                         Label("Game", systemImage: "gamecontroller.fill")
