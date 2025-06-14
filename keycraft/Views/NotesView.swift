@@ -17,7 +17,7 @@ struct NotesView: View {
             VStack {
                 // Custom Title Row
                 HStack {
-                    Text("My Notes")
+                    Text("Wiki")
                         .font(.largeTitle)
                         .bold()
                     Spacer()
@@ -36,14 +36,12 @@ struct NotesView: View {
                         Button(action: {
                             editingNote = note
                         }) {
-                            VStack(alignment: .leading) {
+                            HStack() {
                                 Text(note.title).font(.headline)
+                                Spacer()
                                 Text(note.content).font(.subheadline).lineLimit(2)
-                                Text(note.date, style: .date)
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
                             }
-                            .padding(.vertical, 4)
+                            .padding(.vertical, 2)
                         }
                     }
                     .onDelete(perform: notesVM.deleteNote)

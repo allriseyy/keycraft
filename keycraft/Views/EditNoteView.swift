@@ -32,7 +32,7 @@ struct EditNoteView: View {
                         .frame(height: 200)
                 }
             }
-            .navigationBarTitle("Edit Note", displayMode: .inline)
+            .navigationBarTitle("Edit", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button("Save") {
                     notesVM.updateNote(note: note, title: title, content: content)

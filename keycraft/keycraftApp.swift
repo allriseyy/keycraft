@@ -31,19 +31,19 @@ struct keycraftApp: App {
                     }
                 NotesView()
                     .tabItem {
-                        Label("Notes", systemImage: "note.text")
+                        Label("Learn", systemImage: "note.text")
                     }
-                ProfileView()
+                ContentView()
                     .tabItem {
-                        Label("Profile", systemImage: "person.crop.circle")
+                        Label("Blitz", systemImage: "bolt.fill")
                     }
                 WarCardGameView()
                     .tabItem {
                         Label("Game", systemImage: "gamecontroller.fill")
                     }
-                ContentView()
+                ProfileView()
                     .tabItem {
-                        Label("Dummy", systemImage: "bolt.fill")
+                        Label("Profile", systemImage: "person.crop.circle")
                     }
             }
             .environmentObject(notesVM)
