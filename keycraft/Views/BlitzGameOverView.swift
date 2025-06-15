@@ -24,6 +24,7 @@ struct GameOverView: View {
             
             Button {
                 vm.restart()
+                vm.startTimer()
             } label: {
                 Text("Play Again")
                     .padding(.horizontal, 36).padding(.vertical, 16)

@@ -37,7 +37,6 @@ class NotesViewModel: ObservableObject {
         notes.remove(atOffsets: offsets)
     }
     
-    // Persistence
     func saveNotes() {
         if let encoded = try? JSONEncoder().encode(notes) {
             UserDefaults.standard.set(encoded, forKey: notesKey)

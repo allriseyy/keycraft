@@ -10,12 +10,11 @@ import Foundation
 struct Question: Identifiable {
     let id = UUID()
     let text: String
-    let answers: [String]      // MUST contain 4 strings
-    let correctIndex: Int      // 0-3
+    let answers: [String]
+    let correctIndex: Int
 }
 
 struct GameData {
-    /// Hard-coded bank (replace with JSON or API if you like)
     static let sample: [Question] = [
         Question(text: "The capital of the UK is …",
                  answers: ["London", "Paris", "Berlin", "Madrid"],
