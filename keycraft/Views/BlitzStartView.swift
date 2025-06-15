@@ -27,6 +27,9 @@ struct BlitzStartView: View {
                         .background(Color.purple)
                         .foregroundColor(.white).cornerRadius(14)
                 }
+                .simultaneousGesture(TapGesture().onEnded {
+                    vm.startTimer()
+                })
                 Spacer()
             }
             .padding()

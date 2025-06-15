@@ -11,7 +11,6 @@ struct BlitzView: View {
     @EnvironmentObject private var vm: GameViewModel
     
     var body: some View {
-        // Navigate to GameOverView automatically
         if vm.finished {
             GameOverView()
         } else {
@@ -25,9 +24,6 @@ struct BlitzView: View {
             .padding()
             .animation(.spring(), value: vm.current)    // smooth transition
             .navigationBarBackButtonHidden(true)        // no back button
-            .onAppear {
-                vm.startTimer() // 👈 Called every time view appears
-            }
         }
     }
     
