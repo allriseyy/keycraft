@@ -1,14 +1,7 @@
-//
-//  HomeView.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 10/06/2025.
-//
-
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var notesVM: NotesViewModel
+    @EnvironmentObject var shortcutsVM: ShortcutsViewModel
 
     var body: some View {
         NavigationView {
@@ -26,8 +19,4 @@ struct HomeView: View {
             }
         }
     }
-}
-
-#Preview {
-    HomeView()
 }

@@ -1,10 +1,3 @@
-//
-//  BlitzViewModel.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 14/06/2025.
-//
-
 import SwiftUI
 import Combine
 
@@ -51,8 +44,8 @@ final class GameViewModel: ObservableObject {
     }
     
     func startTimer() {
-        start = Date()  // 👈 Set the start time when timer begins
-        elapsed = 0     // Optional: reset displayed timer
+        start = Date()
+        elapsed = 0
 
         timerCancellable = Timer
             .publish(every: 1, on: .main, in: .common)

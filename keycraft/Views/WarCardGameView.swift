@@ -1,10 +1,3 @@
-//
-//  WarCardGameView.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 07/06/2025.
-//
-
 import SwiftUI
 
 struct WarCardGameView: View {
@@ -73,11 +66,5 @@ struct WarCardGameView: View {
         playerCard = "card" + String(playerScore)
         cpuScore = Int.random(in: 2...14)
         cpuCard = "card" + String(cpuScore)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        WarCardGameView()
     }
 }
