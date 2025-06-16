@@ -1,14 +1,7 @@
-//
-//  AddNoteView.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 10/06/2025.
-//
-
 import SwiftUI
 
-struct AddNoteView: View {
-    @EnvironmentObject var notesVM: NotesViewModel
+struct AddShortcutView: View {
+    @EnvironmentObject var shortcutsVM: ShortcutsViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var title = ""
     @State private var content = ""
@@ -17,18 +10,18 @@ struct AddNoteView: View {
         NavigationView {
             Form {
                 Section(header: Text("Title")) {
-                    TextField("Note Title", text: $title)
+                    TextField("What is this shortcut doing?", text: $title)
                 }
                 Section(header: Text("Content")) {
                     TextEditor(text: $content)
                         .frame(height: 200)
                 }
             }
-            .navigationBarTitle("New Note", displayMode: .inline)
+            .navigationBarTitle("New Shortcut", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button("Save") {
                     if !title.isEmpty || !content.isEmpty {
-                        notesVM.addNote(title: title, content: content)
+                        shortcutsVM.addShortcut(title: title, content: content)
                         presentationMode.wrappedValue.dismiss()
                     }
                 }

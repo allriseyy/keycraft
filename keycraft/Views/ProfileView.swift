@@ -1,10 +1,3 @@
-//
-//  ProfileView.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 10/06/2025.
-//
-
 import SwiftUI
 
 struct ProfileView: View {

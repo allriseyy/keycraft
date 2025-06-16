@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 04/06/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -25,8 +18,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

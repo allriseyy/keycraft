@@ -1,27 +1,8 @@
-//
-//  keycraftApp.swift
-//  keycraft
-//
-//  Created by YI YONG LIM on 04/06/2025.
-//
-
-//import SwiftUI
-//
-//@main
-//struct keycraftApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//            WarCardGameView()
-//        }
-//    }
-//}
-
 import SwiftUI
 
 @main
 struct keycraftApp: App {
-    @StateObject var notesVM = NotesViewModel()
+    @StateObject var shortcutsVM = ShortcutsViewModel()
     @StateObject var blitzVM = GameViewModel()
     @State private var selectedTab: Tab = .home
     var body: some Scene {
@@ -31,7 +12,7 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
-                NotesView()
+                ShortcutsView()
                     .tabItem {
                         Label("Learn", systemImage: "note.text")
                     }
@@ -49,7 +30,7 @@ struct keycraftApp: App {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
             }
-            .environmentObject(notesVM)
+            .environmentObject(shortcutsVM)
         }
     }
 }
