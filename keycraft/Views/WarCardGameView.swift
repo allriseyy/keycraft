@@ -13,7 +13,7 @@ struct WarCardGameView: View {
             
             Image("background-plain")
                 .resizable()
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .top)
             
             VStack {
                 Spacer()

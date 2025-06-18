@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BlitzView: View {
     @EnvironmentObject private var vm: GameViewModel
+    @EnvironmentObject var shortcutsVM: ShortcutsViewModel
     
     var body: some View {
         if vm.finished {
@@ -11,6 +12,7 @@ struct BlitzView: View {
                 header
                 Spacer(minLength: 30)
                 questionArea
+                abcArea
                 Spacer(minLength: 20)
                 answersGrid
             }
@@ -38,6 +40,17 @@ struct BlitzView: View {
             .font(.title2).bold()
             .multilineTextAlignment(.center)
             .padding(.horizontal)
+    }
+    
+    private var abcArea: some View {
+        ForEach(shortcutsVM.shortcuts) { shortcut in
+            HStack() {
+                Text(shortcut.title).font(.headline)
+                Spacer()
+                Text(shortcut.content).font(.subheadline).lineLimit(2)
+            }
+            .padding(.vertical, 2)
+        }
     }
     
     private var answersGrid: some View {
