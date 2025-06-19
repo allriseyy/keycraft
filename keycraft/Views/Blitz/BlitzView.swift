@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BlitzView: View {
-    @EnvironmentObject private var vm: GameViewModel
+    @EnvironmentObject private var vm: BlitzViewModel
     @EnvironmentObject var shortcutsVM: ShortcutsViewModel
     
     var body: some View {
@@ -12,7 +12,6 @@ struct BlitzView: View {
                 header
                 Spacer(minLength: 30)
                 questionArea
-                abcArea
                 Spacer(minLength: 20)
                 answersGrid
             }
@@ -36,28 +35,20 @@ struct BlitzView: View {
     }
     
     private var questionArea: some View {
-        Text(vm.questions[vm.current].text)
+        Text(shortcutsVM.shortcuts[vm.current].title)
             .font(.title2).bold()
             .multilineTextAlignment(.center)
             .padding(.horizontal)
     }
     
-    private var abcArea: some View {
-        ForEach(shortcutsVM.shortcuts) { shortcut in
-            HStack() {
-                Text(shortcut.title).font(.headline)
-                Spacer()
-                Text(shortcut.content).font(.subheadline).lineLimit(2)
-            }
-            .padding(.vertical, 2)
-        }
-    }
-    
     private var answersGrid: some View {
-        VStack(spacing: 16) {
-            ForEach(Array(vm.questions[vm.current].answers.enumerated()), id: \.offset) { idx, answer in
+        let currentShortcut = shortcutsVM.shortcuts[vm.current]
+        let allAnswers = vm.shuffledAnswers(for: currentShortcut) // <-- You define this method
+        
+        return VStack(spacing: 16) {
+            ForEach(Array(allAnswers.enumerated()), id: \.offset) { idx, answer in
                 Button {
-                    vm.choose(idx)
+                    vm.chooseAnswer(answer, correct: currentShortcut.content)
                 } label: {
                     Text(answer)
                         .frame(maxWidth: .infinity)
@@ -69,4 +60,5 @@ struct BlitzView: View {
             }
         }
     }
+
 }

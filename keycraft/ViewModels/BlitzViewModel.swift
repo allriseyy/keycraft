@@ -2,8 +2,7 @@ import SwiftUI
 import Combine
 
 @MainActor
-final class GameViewModel: ObservableObject {
-    @Published private(set) var questions: [Question]
+final class BlitzViewModel: ObservableObject {
     @Published private(set) var current = 0
     @Published private(set) var lives = 3
     @Published private(set) var elapsed = 0
@@ -11,30 +10,37 @@ final class GameViewModel: ObservableObject {
     
     private var start = Date()
     private var timerCancellable: AnyCancellable?
+    private var shortcutsVM: ShortcutsViewModel
 
-    init(questions: [Question] = GameData.sample) {
-        self.questions = questions
+    init(shortcutsVM: ShortcutsViewModel) {
+        self.shortcutsVM = shortcutsVM
     }
     
-    func choose(_ index: Int) {
-        guard !finished else { return }
-        
-        let correct = questions[current].correctIndex
-        if index == correct {
-            if current + 1 < questions.count {
-                current += 1
-            } else {
-                finished = true
-                stopTimer()
+    func shuffledAnswers(for shortcut: Shortcut) -> [String] {
+            var options = shortcutsVM.shortcuts.map { $0.content }
+            options.shuffle()
+            if !options.contains(shortcut.content) {
+                options[0] = shortcut.content
+                options.shuffle()
             }
-        } else {
-            lives -= 1
-            if lives == 0 {
-                finished = true
-                stopTimer()
+            return Array(options.prefix(4))
+        }
+
+    func chooseAnswer(_ selected: String, correct: String) {
+            if selected == correct {
+                current += 1
+                if current >= shortcutsVM.shortcuts.count {
+                    finished = true
+                    stopTimer()
+                }
+            } else {
+                lives -= 1
+                if lives <= 0 {
+                    finished = true
+                    stopTimer()
+                }
             }
         }
-    }
     
     func restart() {
         current = 0
