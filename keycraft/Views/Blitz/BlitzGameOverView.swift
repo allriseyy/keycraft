@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct GameOverView: View {
-    @EnvironmentObject private var vm: GameViewModel
+    @EnvironmentObject private var vm: BlitzViewModel
     @Environment(\.dismiss) private var dismiss   // to pop to root
     
     var body: some View {
@@ -17,7 +17,7 @@ struct GameOverView: View {
             
             Button {
                 vm.restart()
-                vm.startTimer()
+//                vm.startTimer()
             } label: {
                 Text("Play Again")
                     .padding(.horizontal, 36).padding(.vertical, 16)

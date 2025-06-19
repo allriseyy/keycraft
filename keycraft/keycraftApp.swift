@@ -3,8 +3,14 @@ import SwiftUI
 @main
 struct keycraftApp: App {
     @StateObject var shortcutsVM = ShortcutsViewModel()
-    @StateObject var blitzVM = GameViewModel()
+    @StateObject var blitzVM: BlitzViewModel
     @State private var selectedTab: Tab = .home
+    
+    init() {
+        let shortcuts = ShortcutsViewModel()
+        _shortcutsVM = StateObject(wrappedValue: shortcuts)
+        _blitzVM = StateObject(wrappedValue: BlitzViewModel(shortcutsVM: shortcuts))
+    }
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -20,6 +26,7 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Blitz", systemImage: "bolt.fill")
                     }
+                    .environmentObject(shortcutsVM)
                     .environmentObject(blitzVM)
                 WarCardGameView()
                     .tabItem {

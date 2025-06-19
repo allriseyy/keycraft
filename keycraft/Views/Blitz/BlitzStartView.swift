@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BlitzStartView: View {
-    @EnvironmentObject var vm: GameViewModel
+    @EnvironmentObject var vm: BlitzViewModel
     var body: some View {
         NavigationStack {
             VStack(spacing: 40) {
@@ -21,7 +21,7 @@ struct BlitzStartView: View {
                         .foregroundColor(.white).cornerRadius(14)
                 }
                 .simultaneousGesture(TapGesture().onEnded {
-                    vm.startTimer()
+//                    vm.startTimer()
                 })
                 Spacer()
             }
