@@ -17,28 +17,37 @@ final class BlitzViewModel: ObservableObject {
     }
     
     func shuffledAnswers(for shortcut: Shortcut) -> [String] {
-            var options = shortcutsVM.shortcuts.map { $0.content }
-            options.shuffle()
-            if !options.contains(shortcut.content) {
-                options[0] = shortcut.content
-                options.shuffle()
-            }
-            return Array(options.prefix(4))
-        }
+        // 1️⃣  Build a pool of *wrong* answers only
+        var distractors = shortcutsVM.shortcuts
+            .filter { $0.content != shortcut.content }
+            .map   { $0.content }
+        distractors.shuffle()
+
+        // 2️⃣  Pick up to 3 wrong answers
+        let wrong = Array(distractors.prefix(3))
+
+        // 3️⃣  Combine with the correct answer
+        var choices = wrong + [shortcut.content]
+
+        // 4️⃣  Shuffle the final 4 so the correct answer’s position is random
+        choices.shuffle()
+        return choices
+    }
+
 
     func chooseAnswer(_ selected: String, correct: String) {
-            if selected == correct {
-                current += 1
-                if current >= shortcutsVM.shortcuts.count {
-                    finished = true
-                }
-            } else {
-                lives -= 1
-                if lives <= 0 {
-                    finished = true
-                }
+        if selected == correct {
+            current += 1
+            if current >= shortcutsVM.shortcuts.count {
+                finished = true
+            }
+        } else {
+            lives -= 1
+            if lives <= 0 {
+                finished = true
             }
         }
+    }
     
     func restart() {
         current = 0
