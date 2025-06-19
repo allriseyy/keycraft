@@ -11,8 +11,8 @@ struct BlitzStartView: View {
                 
                 NavigationLink {
                     BlitzView()
-                        .environmentObject(vm)  // inject VM
-                        .navigationBarBackButtonHidden(true) // ← hide back button
+                        .environmentObject(vm)
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     Text("Start")
                         .font(.title2).bold()
@@ -21,7 +21,7 @@ struct BlitzStartView: View {
                         .foregroundColor(.white).cornerRadius(14)
                 }
                 .simultaneousGesture(TapGesture().onEnded {
-//                    vm.startTimer()
+//                    start timer here
                 })
                 Spacer()
             }
