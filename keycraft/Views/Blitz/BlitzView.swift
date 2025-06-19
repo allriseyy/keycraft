@@ -43,10 +43,9 @@ struct BlitzView: View {
     
     private var answersGrid: some View {
         let currentShortcut = shortcutsVM.shortcuts[vm.current]
-        let allAnswers = vm.shuffledAnswers(for: currentShortcut) // <-- You define this method
-        
+        let choices = vm.shuffledAnswers(for: currentShortcut)
         return VStack(spacing: 16) {
-            ForEach(Array(allAnswers.enumerated()), id: \.offset) { idx, answer in
+            ForEach(Array(choices.enumerated()), id: \.offset) { idx, answer in
                 Button {
                     vm.chooseAnswer(answer, correct: currentShortcut.content)
                 } label: {
@@ -60,5 +59,4 @@ struct BlitzView: View {
             }
         }
     }
-
 }
