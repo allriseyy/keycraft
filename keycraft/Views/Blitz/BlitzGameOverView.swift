@@ -16,8 +16,8 @@ struct GameOverView: View {
             .font(.title3)
             
             Button {
+                dismiss()
                 vm.restart()
-//                vm.startTimer()
             } label: {
                 Text("Play Again")
                     .padding(.horizontal, 36).padding(.vertical, 16)
@@ -27,7 +27,7 @@ struct GameOverView: View {
             }
             
             Button("Exit") {
-                dismiss()    // returns to StartView
+                dismiss()
                 vm.restart()
             }
             .padding(.top, 8)

@@ -31,13 +31,11 @@ final class BlitzViewModel: ObservableObject {
                 current += 1
                 if current >= shortcutsVM.shortcuts.count {
                     finished = true
-                    stopTimer()
                 }
             } else {
                 lives -= 1
                 if lives <= 0 {
                     finished = true
-                    stopTimer()
                 }
             }
         }
@@ -47,21 +45,5 @@ final class BlitzViewModel: ObservableObject {
         lives = 3
         elapsed = 0
         finished = false
-    }
-    
-    func startTimer() {
-        start = Date()
-        elapsed = 0
-
-        timerCancellable = Timer
-            .publish(every: 1, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                self?.elapsed = Int(Date().timeIntervalSince(self?.start ?? Date()))
-            }
-    }
-    
-    func stopTimer() {
-        timerCancellable?.cancel()
     }
 }

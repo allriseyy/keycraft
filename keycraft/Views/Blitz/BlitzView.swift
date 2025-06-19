@@ -24,7 +24,7 @@ struct BlitzView: View {
     // MARK: - Sub-views
     private var header: some View {
         HStack {
-            Text("⏱ \(vm.elapsed)s")
+            Text("⏱ \("developing")s")
                 .font(.headline)
             Spacer()
             ForEach(0..<3, id: \.self) { i in
