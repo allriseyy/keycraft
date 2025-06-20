@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GameOverView: View {
     @EnvironmentObject private var vm: BlitzViewModel
-    @Environment(\.dismiss) private var dismiss   // to pop to root
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 30) {
@@ -10,7 +10,7 @@ struct GameOverView: View {
                 .font(.largeTitle).bold()
             
             VStack(spacing: 12) {
-                Text("Time: \(vm.elapsed) s")
+                Text("Time: \("developing")")
                 Text("Lives left: \(vm.lives)")
             }
             .font(.title3)

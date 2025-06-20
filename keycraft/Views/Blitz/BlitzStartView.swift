@@ -6,8 +6,14 @@ struct BlitzStartView: View {
         NavigationStack {
             VStack(spacing: 40) {
                 Spacer()
-                Text("🧠 Mini Quiz")
+                Text("🧠 Blitz")
                     .font(.largeTitle).bold()
+
+                Text("Fast-paced Q&A game where you race against the clock to master keyboard shortcuts and boost your shortcut skills.")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 25.0)
+                    .padding(.top, 10.0)
                 
                 NavigationLink {
                     BlitzView()

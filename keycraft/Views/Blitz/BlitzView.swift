@@ -16,15 +16,14 @@ struct BlitzView: View {
                 answersGrid
             }
             .padding()
-            .animation(.spring(), value: vm.current)    // smooth transition
-            .navigationBarBackButtonHidden(true)        // no back button
+            .animation(.spring(), value: vm.ticker)
+            .navigationBarBackButtonHidden(true)
         }
     }
     
-    // MARK: - Sub-views
     private var header: some View {
         HStack {
-            Text("⏱ \("developing")s")
+            Text("⏱ \("developing")")
                 .font(.headline)
             Spacer()
             ForEach(0..<3, id: \.self) { i in
@@ -35,14 +34,14 @@ struct BlitzView: View {
     }
     
     private var questionArea: some View {
-        Text(shortcutsVM.shortcuts[vm.current].title)
+        Text(shortcutsVM.shortcuts[vm.ticker].title)
             .font(.title2).bold()
             .multilineTextAlignment(.center)
             .padding(.horizontal)
     }
     
     private var answersGrid: some View {
-        let currentShortcut = shortcutsVM.shortcuts[vm.current]
+        let currentShortcut = shortcutsVM.shortcuts[vm.ticker]
         let choices = vm.shuffledAnswers(for: currentShortcut)
         return VStack(spacing: 16) {
             ForEach(Array(choices.enumerated()), id: \.offset) { idx, answer in

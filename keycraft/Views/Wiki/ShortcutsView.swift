@@ -8,7 +8,6 @@ struct ShortcutsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Custom Title Row
                 HStack {
                     Text("Wiki")
                         .font(.largeTitle)
