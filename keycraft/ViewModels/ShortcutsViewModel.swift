@@ -44,4 +44,3 @@ class ShortcutsViewModel: ObservableObject {
         
     }
 }
-
