@@ -8,7 +8,7 @@ struct HomeView: View {
             VStack {
                 Spacer()
                 Text("Welcome to KeyCraft!")
-                    .font(.title)
+                    .pixelFont(16)
                 
                 Text("Level up your productivity with KeyCraft, the fun and interactive way to master MacOS/Windows keyboard shortcuts. Whether you're a total newbie or a seasoned multitasker, this app turns learning into a game.")
                     .font(.subheadline)
