@@ -34,9 +34,38 @@
 		2CDD0EEB2DF06F8C0066B899 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2C100C6E2E09C989003B9CB0 /* Exceptions for "keycraft" folder in "keycraftTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/PressStart2P-Regular.ttf",
+			);
+			target = 2CDD0EC12DF06D430066B899 /* keycraftTests */;
+		};
+		2C100C6F2E09C989003B9CB0 /* Exceptions for "keycraft" folder in "keycraftUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Resources/PressStart2P-Regular.ttf",
+			);
+			target = 2CDD0ECB2DF06D430066B899 /* keycraftUITests */;
+		};
+		2C100C712E09C9A7003B9CB0 /* Exceptions for "keycraft" folder in "keycraft" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2CDD0EB42DF06D410066B899 /* keycraft */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2CDD0EB72DF06D410066B899 /* keycraft */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2C100C712E09C9A7003B9CB0 /* Exceptions for "keycraft" folder in "keycraft" target */,
+				2C100C6E2E09C989003B9CB0 /* Exceptions for "keycraft" folder in "keycraftTests" target */,
+				2C100C6F2E09C989003B9CB0 /* Exceptions for "keycraft" folder in "keycraftUITests" target */,
+			);
 			path = keycraft;
 			sourceTree = "<group>";
 		};
@@ -406,6 +435,7 @@
 				DEVELOPMENT_TEAM = 63QG49W64D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keycraft/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,6 +466,7 @@
 				DEVELOPMENT_TEAM = 63QG49W64D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = keycraft/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
