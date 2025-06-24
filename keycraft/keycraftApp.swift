@@ -14,7 +14,7 @@ struct keycraftApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                HomeView()
+                HomeViewNew()
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
