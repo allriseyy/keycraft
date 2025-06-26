@@ -43,4 +43,37 @@ class ShortcutsViewModel: ObservableObject {
         }
         
     }
+    
+    func deleteAllShortcuts() {
+        shortcuts.removeAll()
+    }
+    
+    func addDummyWiki() {
+        let dummyShortcuts: [(String, String)] = [
+            ("Select All", "⌘ + A"),
+            ("Copy", "⌘ + C"),
+            ("Paste", "⌘ + V"),
+            ("Cut", "⌘ + X"),
+            ("Undo", "⌘ + Z"),
+            ("Redo", "⇧ + ⌘ + Z"),
+            ("Find", "⌘ + F"),
+            ("New Window", "⌘ + N"),
+            ("New Tab", "⌘ + T"),
+            ("Close Window", "⌘ + W"),
+            ("Quit App", "⌘ + Q"),
+            ("Force Quit", "⌘ + ⌥ + Esc"),
+            ("Switch Apps", "⌘ + Tab"),
+            ("Minimize Window", "⌘ + M"),
+            ("Open Spotlight", "⌘ + Space"),
+            ("Take Screenshot", "⇧ + ⌘ + 3"),
+            ("Capture Selection", "⇧ + ⌘ + 4"),
+            ("Open Finder", "⌘ + Option + Space"),
+            ("Open Preferences", "⌘ + ,"),
+            ("Lock Screen", "⌃ + ⌘ + Q")
+        ]
+
+        for (title, content) in dummyShortcuts {
+            addShortcut(title: title, content: content)
+        }
+    }
 }
