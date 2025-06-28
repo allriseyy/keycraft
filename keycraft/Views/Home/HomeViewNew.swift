@@ -14,7 +14,6 @@ struct HomeViewNew: View {
                     Spacer(minLength: 32)
                 }
             }
-            .background(Color.black.edgesIgnoringSafeArea(.top))
         }
     }
 }

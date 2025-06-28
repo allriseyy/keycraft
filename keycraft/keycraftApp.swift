@@ -18,6 +18,7 @@ struct keycraftApp: App {
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
+                    .preferredColorScheme(.dark)
                 ShortcutsView()
                     .tabItem {
                         Label("Learn", systemImage: "note.text")
