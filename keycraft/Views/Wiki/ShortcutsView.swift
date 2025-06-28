@@ -71,7 +71,6 @@ struct ShortcutsView: View {
                 AddShortcutView()
                     .environmentObject(shortcutsVM)
             }
-            .background(Color.black.edgesIgnoringSafeArea(.top))
         }
     }
 }
